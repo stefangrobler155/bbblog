@@ -80,6 +80,16 @@ export async function fetchSiteSettings() {
 
 
 //FETCHING POSTS
+export async function fetchFeaturedPosts(limit = 3) {
+  const res = await fetch(
+    `${process.env.WORDPRESS_API_URL}/wp-json/wp/v2/posts?_embed&per_page=${limit}`,
+    { next: { revalidate: 60 } } // revalidate every 60s
+  );
+
+  if (!res.ok) throw new Error("Failed to fetch featured posts");
+
+  return res.json();
+}
 export async function fetchPosts() {
   try {
     const res = await fetch(
