@@ -13,21 +13,19 @@
 
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--dark-bg);
+  --color-foreground: var(--light-bg);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--dark-bg);
+    --foreground: var(--dark-bg);
   }
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: var(--light-text);
   font-family: Inter, sans;
 }
