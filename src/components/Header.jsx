@@ -10,8 +10,8 @@ export default function Header({ logo, ctaLabel, ctaUrl }) {
   const menu = [
     { name: "Home", href: "/" },
     { name: "Blog", href: "/blog" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    // { name: "About", href: "/about" },
+    // { name: "Contact", href: "/contact" },
   ];
 
   return (

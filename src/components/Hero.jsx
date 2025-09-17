@@ -1,24 +1,42 @@
-export default function Hero({ hero }) {
-        
+import Image from 'next/image';
+import Link from 'next/link';
+
+const heroData = {
+    title: 'Welcome to Brew & Beyond',
+    subtitle: 'Discover the art of brewing',
+    cta: {
+      title: 'Read More!',
+      link: '/blog',
+      target: '_self',
+    },
+    image: {
+      url:'http://bbblog.local/wp-content/uploads/2025/09/hero.jpg',
+      alt: 'Hero'
+    }
+  }
+
+
+export default function Hero() {
   return (
-    <section className="relative h-[70vh] flex items-center justify-center text-center bg-gray-900 text-white">
-      <img
-        src={hero.image}
-        alt={hero.title}
-        className="absolute inset-0 w-full h-full object-cover opacity-60"
-      />
-      <div className="relative z-10 max-w-2xl px-6">
-        <h1 className="text-4xl md:text-5xl font-bold">{hero.title}</h1>
-        <p className="mt-4 text-lg text-gray-200">{hero.subtitle}</p>
-        {hero.cta?.url && (
-          <a
-            href={hero.cta.url}
-            target={hero.cta.target || "_self"}
-            className="inline-block mt-6 bg-[var(--accent)] text-white px-6 py-3 rounded-md hover:bg-opacity-70"
+    <section className="bg-secondary-accent py-20 text-center">
+      <div className="max-w-7xl container mx-auto px-4">
+        <h1 className="text-5xl font-bold text-accent">{heroData.title}</h1>
+        <p className="mt-4 text-2xl text-dark-text">{heroData.subtitle}</p>
+          <Image
+            src={heroData.image.url}
+            alt={heroData.image.alt}
+            width={1360}
+            height={600}
+            className="mt-8 rounded-lg shadow-lg"
+            priority
+          />
+          <Link
+            href={heroData.cta.link}
+            target={heroData.cta.target}
+            className="mt-8 inline-block bg-accent text-light-text px-6 py-3 rounded-full hover:bg-dark-bg"
           >
-            {hero.cta.label || "Read More"}
-          </a>
-        )}
+            {heroData.cta.title}
+          </Link>
       </div>
     </section>
   );

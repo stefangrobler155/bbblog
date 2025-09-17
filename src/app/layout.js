@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import "./globals.css";
-import { fetchSiteSettings } from "@/lib/api";
+import Footer from "@/components/Footer";
 
 
 export const metadata = {
@@ -9,13 +9,13 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const settings = await fetchSiteSettings();
    
   return (
     <html lang="en">
       <body>
-        <Header logo={settings.logo}/>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

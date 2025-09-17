@@ -1,18 +1,41 @@
-import Hero from "@/components/Hero";
-import { fetchCategories, fetchSiteSettings, fetchFeaturedPosts } from "../lib/api";
-import FeaturedCategories from "@/components/FeaturedCategories";
+import { fetchFeaturedPosts, fetchCategories } from "@/lib/wordpress";
 import FeaturedPosts from "@/components/FeaturedPosts";
+import ExploreByCategory from "@/components/ExploreByCategory";
+import PopularPosts from "@/components/PopularPosts";
+import NewsLetterSignup from "@/components/NewsLetterSignup";
+import RecentPosts from "@/components/RecentPosts";
+import Link from "next/link";
+import Hero from "@/components/Hero";
 
-export default async function Home() {
+export default async function HomePage({ searchParams }) {
+  const featuredPosts = await fetchFeaturedPosts("featured-post"); // Replace with your tag slug or ID
   const categories = await fetchCategories();
-  const settings = await fetchSiteSettings();
-  const posts = await fetchFeaturedPosts(3);
 
   return (
-    <main className="">
-      <Hero hero={settings.hero} />
-      <FeaturedPosts posts={posts} />
-      <FeaturedCategories categories={categories} />
+    <main>
+      <Hero />
+
+      {/* Featured Posts Section */}
+      <FeaturedPosts posts={featuredPosts} />
+
+      {/* Explore by Category Section */}
+      <ExploreByCategory categories={categories} />
+
+      {/* Popular Posts Section */}
+      <PopularPosts />
+
+      {/* Newsletter Signup Section */}
+      <NewsLetterSignup />
+
+      {/* Recent Posts Section */}
+      <RecentPosts searchParams={searchParams} />
     </main>
   );
+}
+
+export async function generateMetadata() {
+  return {
+    title: "Home | Your Blog Name",
+    description: "Welcome to our blog, featuring the latest posts and insights.",
+  };
 }
