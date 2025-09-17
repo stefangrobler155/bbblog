@@ -29,7 +29,7 @@ export async function fetchPosts({ page = 1, perPage = 9, categoryId = null } = 
   }
   const posts = await res.json();
   const totalPages = parseInt(res.headers.get("X-WP-TotalPages") || "1", 10);
-  console.log(`Fetched posts: ${posts.length}, Total Pages: ${totalPages}, Page: ${page}`);
+  
   return { posts, totalPages };
 }
 
@@ -79,7 +79,7 @@ const posts = await res.json();
 export async function fetchPopularPosts() {
   const url = `${process.env.NEXT_PUBLIC_WP_API_URL}/wp-json/wp/v2/posts?per_page=6&_embed&order_by=popularity`; // Requires plugin
   const res = await fetch(url, { next: { revalidate: 60 } });
-  console.log("Fetching popular posts from:", url);
+  // console.log("Fetching popular posts from:", url);
   
   if (!res.ok) {
     throw new Error("Failed to fetch popular posts");
