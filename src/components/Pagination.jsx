@@ -25,7 +25,7 @@ export default function Pagination({ currentPage, totalPages, basePath }) {
       {currentPage > 1 && (
         <Link
           href={`${basePath}?page=${currentPage - 1}`}
-          className="px-4 py-2 bg-accent text-light-text rounded hover:bg-opacity-90 transition"
+          className="px-4 py-2 rounded bg-dark-bg text-light-text hover:bg-[var(--light-bg)] hover:text-[var(--dark-text)] transition"
         >
           Previous
         </Link>
@@ -37,7 +37,7 @@ export default function Pagination({ currentPage, totalPages, basePath }) {
           className={`px-4 py-2 rounded ${
             page === currentPage
               ? "bg-accent text-light-text"
-              : "bg-gray-200 text-dark-text hover:bg-gray-300"
+              : "bg-dark-bg text-light-text hover:bg-[var(--light-bg)] hover:text-[var(--dark-text)]"
           } transition`}
         >
           {page}
@@ -46,7 +46,7 @@ export default function Pagination({ currentPage, totalPages, basePath }) {
       {currentPage < totalPages && (
         <Link
           href={`${basePath}?page=${currentPage + 1}`}
-          className="px-4 py-2 bg-accent text-light-text rounded hover:bg-opacity-90 transition"
+          className="px-4 py-2 rounded bg-dark-bg text-light-text hover:bg-[var(--light-bg)] hover:text-[var(--dark-text)] transition"
         >
           Next
         </Link>

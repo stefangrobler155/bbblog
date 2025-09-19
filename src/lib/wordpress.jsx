@@ -87,6 +87,7 @@ export async function fetchPopularPosts() {
   return res.json();
 }
 
+
 export async function fetchPostBySlug(slug) {
   const url = `${process.env.NEXT_PUBLIC_WP_API_URL}/wp-json/wp/v2/posts?slug=${slug}&_embed`;
   const res = await fetch(url, { next: { revalidate: 60 } });
@@ -95,4 +96,14 @@ export async function fetchPostBySlug(slug) {
   }
   const posts = await res.json();
   return posts?.[0] || null;
+}
+
+export async function fetchLandingPageData() {
+  const url = `${process.env.NEXT_PUBLIC_WP_API_URL}/wp-json/wp/v2/pages/132`; 
+  const res = await fetch(url, { next: { revalidate: 60 } });
+    
+  if (!res.ok) {
+    throw new Error("Failed to fetch popular posts");
+  }
+  return res.json();
 }

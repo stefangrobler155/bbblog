@@ -20,7 +20,7 @@ export default async function PostPage({ params }) {
 
   return (
     <main className="container min-h-screen mx-auto px-4 py-8">
-      <div className="max-w-7xl md:flex md:gap-8 mx-auto">
+      <div className="max-w-7xl md:flex md:gap-8 mx-auto px-4">
         {/* Featured Image */}
         <div className="md:w-1/3 mb-6 md:mb-0">
           <Image

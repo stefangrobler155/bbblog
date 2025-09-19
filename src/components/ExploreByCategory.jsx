@@ -5,19 +5,16 @@ export default function ExploreByCategory({ categories }) {
     // console.log("ExploreByCategory", categories);
     
   return (
-    <section className="p-8 bg-white">
+    <section className="py-10 px-4">
       <div className="max-w-7xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6" style={{ color: "var(--dark-text)" }}>
+      <h2 className="text-3xl font-bold">
         Explore by Category
       </h2>
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 py-10">
         {categories.map((category) => (
-          <Link
-            key={category.id}
-            href={`/categories/${category.slug}`}
-            className="block p-4 rounded-lg shadow hover:shadow-lg transition bg-[var(--accent)] text-[var(--light-text)]"
-          >
-            <div className="flex flex-col items-center text-center">
+          
+            <div key={category.id} className="flex flex-col items-center text-center  bg-[var(--dark-bg)] rounded-lg p-4 shadow-md hover:shadow-lg transition">
+              <div className="bg-[var(--secondary-accent)] p-4 rounded-lg shadow-md hover:shadow-lg transition w-fit h-fit flex flex-col items-center">
               <Image
                 src={
                   category.acf?.bb_category_image || // Adjust based on your custom field
@@ -26,11 +23,17 @@ export default function ExploreByCategory({ categories }) {
                 alt={category.name}
                 width={200}
                 height={200}
-                className="w-32 h-32 object-cover mb-4 rounded-full"
+                className="w-32 h-32 object-cover mb-4 rounded-full border-2 border-[var(--accent)]"
               />
-              <h3 className="text-xl font-semibold">{category.name}</h3>
+              <Link
+                href={`/categories/${category.slug}`}
+                className="text-lg font-semibold bg-[var(--accent)] text-light-text px-4 py-2 rounded hover:bg-[var(--dark-bg)] transition"
+              >
+              {category.name}
+              </Link>
+              </div>
             </div>
-          </Link>
+          
         ))}
       </div>
       </div>

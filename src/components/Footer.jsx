@@ -4,9 +4,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[var(--accent)] text-light-text py-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-[var(--dark-bg)] text-light-text">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 py-10">
           {/* Branding Section */}
           <div>
             <h3 className="text-2xl font-bold mb-4 text-[var(--light-text)]">
@@ -24,27 +24,27 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/" className="hover:text-[var(--dark-text)] transition">
+                <Link href="/" className="hover:text-[var(--secondary-accent)] transition">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-[var(--dark-text)]  transition">
+                <Link href="/blog" className="hover:text-[var(--secondary-accent)]  transition">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/categories" className="hover:text-[var(--dark-text)] transition">
+                <Link href="/categories" className="hover:text-[var(--secondary-accent)] transition">
                   Categories
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-[var(--dark-text)] transition">
+                <Link href="/about" className="hover:text-[var(--secondary-accent)] transition">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[var(--dark-text)] transition">
+                <Link href="/contact" className="hover:text-[var(--secondary-accent)] transition">
                   Contact
                 </Link>
               </li>
@@ -61,7 +61,7 @@ export default function Footer() {
                 href="https://x.com/yourprofile"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition"
+                className="hover:text-[var(--secondary-accent)] transition"
               >
                 X
               </Link>
@@ -69,7 +69,7 @@ export default function Footer() {
                 href="https://facebook.com/yourprofile"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition"
+                className="hover:text-[var(--secondary-accent)] transition"
               >
                 Facebook
               </Link>
@@ -77,13 +77,13 @@ export default function Footer() {
                 href="https://instagram.com/yourprofile"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition"
+                className="hover:text-[var(--secondary-accent)] transition"
               >
                 Instagram
               </Link>
             </div>
             <p className="text-sm">
-              Email: <Link href="mailto:contact@yourblog.com" className="hover:text-accent transition">
+              Email: <Link href="mailto:contact@yourblog.com" className="hover:text-[var(--secondary-accent)] transition">
                 contact@yourblog.com
               </Link>
             </p>
@@ -91,7 +91,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright Notice */}
-        <div className="mt-8 pt-8 border-t border-gray-200 text-center text-sm">
+        <div className="py-4 border-t border-gray-200 text-center text-sm">
           <p>&copy; {currentYear} Coffee & Beyond. All rights reserved.</p>
         </div>
       </div>

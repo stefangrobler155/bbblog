@@ -1,5 +1,6 @@
 // components/Header.js
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 
 
@@ -10,41 +11,41 @@ export default function Header({ logo, ctaLabel, ctaUrl }) {
   const menu = [
     { name: "Home", href: "/" },
     { name: "Blog", href: "/blog" },
-    // { name: "About", href: "/about" },
-    // { name: "Contact", href: "/contact" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-[var(--accent)] shadow-md">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+    <header className="sticky top-0 z-50 bg-[var(--dark-bg)] shadow-md px-4">
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-3">
         {/* Logo */}
         <a href="/">
           {logo ? (
             <div className="flex gap-4">
             <img src={logo} alt="Brew & Beyond" className="h-10 w-auto" />
-            <h2 className="font-bold text-4xl">Brew & Beyond</h2>
+            <h2 className="font-bold text-4xl text-[var(--light-text)]">Brew & Beyond</h2>
             </div>
           ) : (
-            <span className="font-bold text-xl">Brew & Beyond</span>
+            <span className="font-bold text-xl text-[var(--light-text)]">Brew & Beyond</span>
           )}
         </a>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex gap-6">
           {menu.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
-              className="text-white hover:text-green-400"
+              className="text-white hover:text-[var(--secondary-accent)] transition"
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-700"
+          className="md:hidden text-[var(--light-text)] focus:outline-none"
           onClick={() => setOpen(!open)}
         >
           ☰
@@ -53,15 +54,15 @@ export default function Header({ logo, ctaLabel, ctaUrl }) {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-white border-t">
+        <div className="md:hidden bg-[var(--accent)]">
           {menu.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
-              className="block px-4 py-3 text-gray-700 hover:bg-gray-50"
+              className="block px-4 py-3 text-[var(--light-text)] hover:text-[var(--dark-text)] border-b"
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </div>
       )}

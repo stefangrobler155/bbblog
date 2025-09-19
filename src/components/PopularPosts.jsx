@@ -6,9 +6,9 @@ export default async function PopularPosts() {
   const posts = await fetchPopularPosts();
 
   return (
-    <section className="p-8 bg-white">
+    <section className="bg-secondary-accent py-10 px-4">
       <div className="max-w-7xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6" style={{ color: "var(--dark-text)" }}>
+      <h2 className="text-3xl font-bold" style={{ color: "var(--dark-text)" }}>
         Popular Posts
       </h2>
       <PostGrid posts={posts} />

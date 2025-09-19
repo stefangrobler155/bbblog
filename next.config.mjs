@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'bbblog.local',
+        protocol: 'https',
+        hostname: 'bb.sfgweb.co.za',
         pathname: '/wp-content/uploads/**', // Restrict to WordPress uploads
       },
     ],

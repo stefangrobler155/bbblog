@@ -4,7 +4,7 @@ import { formatDate } from "@/lib/utils";
 
 export default function PostGrid({ posts }) {
   return (
-    <div className="grid md:grid-cols-3 gap-6">
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 py-10">
       {posts.length > 0 ? (
         posts.map((post) => {
           const primaryCategory = post._embedded?.["wp:term"]?.[0]?.[0] || {
@@ -13,7 +13,7 @@ export default function PostGrid({ posts }) {
           };
 
           return (
-            <article key={post.id} className="card p-4 rounded shadow hover:shadow-lg transition">
+            <article key={post.id} className="card bg-[var(--light-bg)] p-4 rounded shadow hover:shadow-lg transition">
               <Link href={`/blog/${post.slug}`}>
                 <Image
                   src={
@@ -34,22 +34,22 @@ export default function PostGrid({ posts }) {
                   {primaryCategory.name}
                 </Link>
                 <h2
-                  className="text-xl font-semibold mb-2 hover:text-accent transition"
+                  className="text-xl font-semibold mb-2 hover:text-[var(--accent)] hover:underline transition"
                 >
                   <Link href={`/blog/${post.slug}`}>
                     <span dangerouslySetInnerHTML={{ __html: post.title?.rendered || "Untitled Post" }} />
                   </Link>
                 </h2>
-                <p className="text-sm text-gray-600 mb-2">
+                <p className="text-sm text-[var(--dark-text)] mb-2">
                   {formatDate(post.date || new Date())}
                 </p>
                 <div
-                  className="text-sm text-gray-600 mb-4 line-clamp-3"
+                  className="text-sm text-[var(--dark-text)] mb-4 line-clamp-3"
                   dangerouslySetInnerHTML={{ __html: post.excerpt?.rendered || "No excerpt available." }}
                 />
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="w-fit px-4 py-2 bg-accent text-light-text rounded hover:bg-opacity-90 transition"
+                  className="w-fit px-4 py-2 bg-accent text-light-text rounded hover:bg-[var(--dark-bg)] transition"
                 >
                   Read More
                 </Link>
@@ -58,7 +58,7 @@ export default function PostGrid({ posts }) {
           );
         })
       ) : (
-        <p className="mt-6 text-gray-600">No posts found.</p>
+        <p className="mt-6 text-[var(--dark-text)]">No posts found.</p>
       )}
     </div>
   );

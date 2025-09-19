@@ -2,7 +2,7 @@ const AllPosts = ({ posts }) => {
        
   return (
     <section>
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 gap-4 px-4">
             
                 {posts.map((post) => {
                     return (

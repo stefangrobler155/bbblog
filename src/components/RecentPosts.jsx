@@ -43,9 +43,9 @@ export default function RecentPosts({ initialPosts = [], initialTotalPages = 1 }
   }, [page]);
 
   return (
-    <section className="p-8 bg-white">
+    <section className="py-10 px-4">
       <div className="max-w-7xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6" style={{ color: "var(--dark-text)" }}>
+      <h2 className="text-3xl font-bold" style={{ color: "var(--dark-text)" }}>
         Recent Posts
       </h2>
       <PostGrid posts={posts} />

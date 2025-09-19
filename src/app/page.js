@@ -1,4 +1,4 @@
-import { fetchFeaturedPosts, fetchCategories } from "@/lib/wordpress";
+import { fetchFeaturedPosts, fetchCategories, fetchLandingPageData } from "@/lib/wordpress";
 import FeaturedPosts from "@/components/FeaturedPosts";
 import ExploreByCategory from "@/components/ExploreByCategory";
 import PopularPosts from "@/components/PopularPosts";
@@ -10,10 +10,12 @@ import Hero from "@/components/Hero";
 export default async function HomePage({ searchParams }) {
   const featuredPosts = await fetchFeaturedPosts("featured-post"); // Replace with your tag slug or ID
   const categories = await fetchCategories();
+  const landingPageData = await fetchLandingPageData();
+  // console.log("Landing Page Data:", landingPageData);
 
   return (
     <main>
-      <Hero />
+      <Hero data={landingPageData} />
 
       {/* Featured Posts Section */}
       <FeaturedPosts posts={featuredPosts} />
