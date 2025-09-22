@@ -6,6 +6,7 @@ import NewsLetterSignup from "@/components/NewsLetterSignup";
 import RecentPosts from "@/components/RecentPosts";
 import Hero from "@/components/Hero";
 
+
 export default async function HomePage({ searchParams }) {
   const featuredPosts = await fetchFeaturedPosts("featured-post"); // Replace with your tag slug or ID
   const categories = await fetchCategories();

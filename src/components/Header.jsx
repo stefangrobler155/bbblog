@@ -2,9 +2,10 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 
-export default function Header({ logo, ctaLabel, ctaUrl }) {
+export default function Header() {
   const [open, setOpen] = useState(false);
   
 
@@ -20,14 +21,10 @@ export default function Header({ logo, ctaLabel, ctaUrl }) {
       <div className="max-w-7xl mx-auto flex justify-between items-center py-3">
         {/* Logo */}
         <a href="/">
-          {logo ? (
             <div className="flex gap-4">
-            <img src={logo} alt="Brew & Beyond" className="h-10 w-auto" />
+            <img src="https://bb.sfgweb.co.za/wp-content/uploads/2025/09/logo.png" alt="Brew & Beyond" className="h-10 w-auto" />
             <h2 className="font-bold text-4xl text-[var(--light-text)]">Brew & Beyond</h2>
             </div>
-          ) : (
-            <span className="font-bold text-xl text-[var(--light-text)]">Brew & Beyond</span>
-          )}
         </a>
 
         {/* Desktop Menu */}

@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import "./globals.css";
 import Footer from "@/components/Footer";
 
-
 export const metadata = {
   title: "Brew & Beyond",
   description: "Stories & Rituals Around the Perfect Cup",

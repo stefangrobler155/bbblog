@@ -22,7 +22,7 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-[var(--secondary-accent)] flex flex-col py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl w-full space-y-8">
+      <div className="max-w-7xl w-full space-y-8 mx-auto">
         {/* Header Section */}
         <div className="">
           <h2 className="text-3xl font-bold text-[var(--dark-text)]">Contact Us</h2>

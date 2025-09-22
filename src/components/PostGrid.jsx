@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { formatDate } from "@/lib/utils";
+import { formatDate, calculateReadingTime } from "@/lib/utils";
 
 export default function PostGrid({ posts }) {
   return (
@@ -33,6 +33,7 @@ export default function PostGrid({ posts }) {
                 >
                   {primaryCategory.name}
                 </Link>
+                
                 <h2
                   className="text-xl font-semibold mb-2 hover:text-[var(--accent)] hover:underline transition"
                 >
@@ -40,9 +41,15 @@ export default function PostGrid({ posts }) {
                     <span dangerouslySetInnerHTML={{ __html: post.title?.rendered || "Untitled Post" }} />
                   </Link>
                 </h2>
-                <p className="text-sm text-[var(--dark-text)] mb-2">
+                <div className="flex gap-4 mb-2">
+                  <p className="text-sm text-[var(--dark-text)]">
                   {formatDate(post.date || new Date())}
                 </p>
+                <p className="text-sm text-[var(--dark-text)]">
+                  {calculateReadingTime(post.content?.rendered || "")} min read
+                </p>
+                </div>
+                
                 <div
                   className="text-sm text-[var(--dark-text)] mb-4 line-clamp-3"
                   dangerouslySetInnerHTML={{ __html: post.excerpt?.rendered || "No excerpt available." }}
