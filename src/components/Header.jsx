@@ -54,12 +54,12 @@ export default function Header({ logo, ctaLabel, ctaUrl }) {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-[var(--accent)]">
+        <div className="md:hidden bg-[var(--dark-bg)]">
           {menu.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="block px-4 py-3 text-[var(--light-text)] hover:text-[var(--dark-text)] border-b"
+              className="block px-4 py-3 text-[var(--light-text)] hover:text-[var(--secondary-accent)] border-b"
             >
               {item.name}
             </Link>

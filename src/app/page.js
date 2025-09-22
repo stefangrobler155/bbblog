@@ -4,7 +4,6 @@ import ExploreByCategory from "@/components/ExploreByCategory";
 import PopularPosts from "@/components/PopularPosts";
 import NewsLetterSignup from "@/components/NewsLetterSignup";
 import RecentPosts from "@/components/RecentPosts";
-import Link from "next/link";
 import Hero from "@/components/Hero";
 
 export default async function HomePage({ searchParams }) {
