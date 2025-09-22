@@ -22,7 +22,13 @@ export default function Header() {
         {/* Logo */}
         <a href="/">
             <div className="flex gap-4">
-            <img src="https://bb.sfgweb.co.za/wp-content/uploads/2025/09/logo.png" alt="Brew & Beyond" className="h-10 w-auto" />
+            <Image 
+              src="https://bb.sfgweb.co.za/wp-content/uploads/2025/09/logo.png" 
+              alt="Brew & Beyond" 
+              className="h-10 w-auto" 
+              width={40}
+              height={40}
+              />
             <h2 className="font-bold text-4xl text-[var(--light-text)]">Brew & Beyond</h2>
             </div>
         </a>

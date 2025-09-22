@@ -37,8 +37,8 @@ export default function Hero({ data }) {
             src={data.acf?.hero_image}
             alt={data.acf?.hero_title || 'Hero Image'}
             width={600}
-            height={600}
-            className="mt-8 rounded-lg shadow-lg"
+            height={750}
+            className="mt-8 rounded-lg shadow-lg w-full h-auto"
             priority
           />
         </div>
