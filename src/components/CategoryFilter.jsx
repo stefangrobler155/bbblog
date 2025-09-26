@@ -18,7 +18,7 @@ export default function CategoryFilter({ categories, currentCategoryId = null })
       {categories.map((cat) => (
         <Link key={cat.id} href={`/categories/${cat.slug}`}>
           <button
-            className={`px-4 py-2 rounded-full font-semibold transition ${
+            className={`px-4 py-2 rounded-full font-semibold transition cursor-pointer ${
               cat.id === currentCategoryId
                 ? "bg-accent text-light-text shadow"
                 : "bg-dark-bg text-light-text hover:bg-[var(--light-bg)] hover:text-[var(--dark-text)]"

@@ -37,7 +37,7 @@ export default async function HomePage({ searchParams }) {
 
 export async function generateMetadata() {
   return {
-    title: "Home | Your Blog Name",
+    title: "Home | Brew & Beyond",
     description: "Welcome to our blog, featuring the latest posts and insights.",
   };
 }
